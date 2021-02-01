@@ -1,0 +1,2 @@
+# Analog-to-Digital-Conversion-Arduino
+The aim of this experiment is to design and simulate a circuit that will display the temperature measured by a temperature sensor on an LCD screen with a fan that turns on after the temperature exceeds a certain threshold. The computation of the temperature to be displayed – based on the input of the TMP36 sensor – will be done using an Arduino Uno. The experiment was successful, and the desired results were obtained.
