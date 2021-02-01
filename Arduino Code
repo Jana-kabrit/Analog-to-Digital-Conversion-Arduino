@@ -1,0 +1,30 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+const int buzzer = 8;
+float temperature;
+
+void setup() {
+  lcd.begin(16, 2);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  temperature = analogRead(A0); //read from the analog sensor and store it
+  temperature = temperature / 1024; //find percentage of input reading
+  temperature = temperature * 5; //multiply by 5V to get voltage
+  temperature = temperature - 0.5; //subtract the offset
+  temperature = temperature * 100; //convert to degrees Celsius 
+  
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: ");
+  lcd.print(temperature);
+  lcd.setCursor(15,0);
+  lcd.print("C");
+  
+  if(temperature >= 30)
+    tone(buzzer,600);
+  else
+    noTone(buzzer);
+} 
+
